@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cycle-ofa"
-version = "0.1.0"
+version = "0.2.0"
 description = "Exact and Monte Carlo greedy online facility assignment on cycles"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -26,6 +26,9 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Mathematics",
 ]
 dependencies = []
+
+[project.urls]
+Repository = "https://github.com/TangoRomeo80/OFA-Cycle"
 
 [project.scripts]
 cycle-ofa = "cycle_ofa.cli:main"

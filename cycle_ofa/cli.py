@@ -9,6 +9,7 @@ from pathlib import Path
 import sys
 
 from . import __version__
+from .camera_ready import camera_ready
 from .exact import ExactSolver
 from .experiments import BASE_SEED, derive_seed, reproduce
 from .simulation import simulate
@@ -47,6 +48,11 @@ def build_parser() -> argparse.ArgumentParser:
     reproduction.add_argument("--seed", type=int, default=BASE_SEED)
     reproduction.add_argument("--output", type=Path, default=None)
     reproduction.add_argument("--max-states", type=_positive, default=1_000_000)
+    reviewer = commands.add_parser("camera-ready", help="generate offline baselines and variance diagnostics")
+    reviewer.add_argument("--profile", choices=("quick", "paper"), default="paper")
+    reviewer.add_argument("--runs", type=_positive, default=None)
+    reviewer.add_argument("--seed", type=int, default=BASE_SEED)
+    reviewer.add_argument("--output", type=Path, default=Path("results") / "camera-ready")
     validation = commands.add_parser("validate", help="run packaged mathematical self-checks")
     validation.add_argument("--exhaustive", action="store_true", help="check ternary words through length 8")
     return parser
@@ -82,6 +88,12 @@ def main(argv: list[str] | None = None) -> int:
                 max_states=args.max_states, progress=lambda message: print(message, file=sys.stderr),
             )
             result = dict(output=str(destination.resolve()), **manifest)
+        elif args.command == "camera-ready":
+            manifest = camera_ready(
+                args.output, profile=args.profile, runs=args.runs, seed=args.seed,
+                progress=lambda message: print(message, file=sys.stderr),
+            )
+            result = dict(output=str(args.output.resolve()), **manifest)
         else:
             result = run_validation(exhaustive=args.exhaustive)
     except (ValueError, RuntimeError, OSError) as error:

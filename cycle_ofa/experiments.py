@@ -32,8 +32,8 @@ def derive_seed(base_seed: int, n: int, m: int, method: str) -> int:
     """Stable, distinct per-method seeds; independent of Python's hash salt."""
     if isinstance(base_seed, bool) or not isinstance(base_seed, int):
         raise ValueError("base_seed must be an integer")
-    if method not in ("direct", "conditional"):
-        raise ValueError("method must be 'direct' or 'conditional'")
+    if method not in ("direct", "conditional", "offline-comparison", "variance-diagnostic"):
+        raise ValueError("unknown seed stream label")
     message = f"cycle-ofa-v1:{base_seed}:{n}:{m}:{method}".encode("ascii")
     return int.from_bytes(hashlib.sha256(message).digest()[:8], "big")
 

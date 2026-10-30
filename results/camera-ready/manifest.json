@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "package_version": "0.2.0",
+  "generated_at_utc": "2026-10-30T15:19:27.929266+00:00",
+  "python_version": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "profile": "paper",
+  "runs_per_case": 10000,
+  "base_seed": 20260822,
+  "seed_derivation": "First 8 SHA-256 bytes (big endian) of ASCII cycle-ofa-v1:{base_seed}:{n}:{m}:{method}",
+  "offline_grid": [
+    [
+      8,
+      2
+    ],
+    [
+      8,
+      4
+    ],
+    [
+      20,
+      5
+    ],
+    [
+      50,
+      5
+    ],
+    [
+      200,
+      10
+    ]
+  ],
+  "variance_grid": [
+    [
+      20,
+      5
+    ],
+    [
+      50,
+      5
+    ],
+    [
+      100,
+      5
+    ],
+    [
+      200,
+      5
+    ]
+  ],
+  "offline_seeds": [
+    {
+      "n": 8,
+      "m": 2,
+      "seed": 5159627117712069894
+    },
+    {
+      "n": 8,
+      "m": 4,
+      "seed": 12058268105488712161
+    },
+    {
+      "n": 20,
+      "m": 5,
+      "seed": 5797702617019813315
+    },
+    {
+      "n": 50,
+      "m": 5,
+      "seed": 1944867478583265833
+    },
+    {
+      "n": 200,
+      "m": 10,
+      "seed": 4703944163758943827
+    }
+  ],
+  "variance_seeds": [
+    {
+      "n": 20,
+      "m": 5,
+      "seed": 17478893939577302575
+    },
+    {
+      "n": 50,
+      "m": 5,
+      "seed": 12071451311065598024
+    },
+    {
+      "n": 100,
+      "m": 5,
+      "seed": 17511291223725904769
+    },
+    {
+      "n": 200,
+      "m": 5,
+      "seed": 16721080594729296019
+    }
+  ],
+  "confidence_interval": "mean +/- 1.96 * sqrt(unbiased_sample_variance / runs)",
+  "offline_ratio": "Ratio of paired sample means greedy_mean/offline_mean, with a paired delta-method normal CI using their sample covariance; not a competitive-ratio bound.",
+  "variance_decomposition": "Var(C) = Var(Y) + E[S], S = sum_t Var(C_t | full facility sequence)",
+  "positional_variance": "(a^3+b^3)/(12*(a+b)) - ((a^2+b^2)/(4*(a+b)))^2; singleton n^2/48",
+  "variance_ratio": "1 + mean_removed_variance/conditional_variance, a same-path point estimate; null if the conditional sample variance vanishes. No ratio CI or limit claim.",
+  "output_sha256": {
+    "offline.csv": "872002ac400a34cd9c2f894cdb805fe71d3b2038bf62e6d6557bad766724c0bc",
+    "variance.csv": "3a7ec84168f488f8dfa43d783163225e006cbec84e456de546ad55e125817326",
+    "reviewer_tables.tex": "f32c89e0f09afc984bb86ddc6fd8ce9ee4003e52d5450e49364406ca6d9c47de"
+  }
+}
