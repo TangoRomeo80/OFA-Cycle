@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite this release and the associated paper."
+type: software
+title: "cycle-ofa: Multi-Capacity Greedy Online Facility Assignment on Cycles"
+version: 0.1.0
+date-released: 2026-10-30
+license: MIT
+authors:
+  - family-names: Riad
+    given-names: Md. Rawha Siddiqi
+    affiliation: American International University-Bangladesh
+  - family-names: Rahat
+    given-names: Md. Tanzeem
+    affiliation: American International University-Bangladesh
+  - family-names: Hasan
+    given-names: Md. Manzurul
+    affiliation: American International University-Bangladesh
+abstract: >-
+  Standard-library Python implementation of exact rational gap recurrences,
+  dihedral symmetry reduction, capacity-bracelet counts, direct continuous
+  simulation, and conditional gap simulation for greedy online facility
+  assignment on unit-edge cycles with uniform capacity. Accompanies the paper
+  Multi-Capacity Greedy Online Facility Assignment on Cycles: Exact Gap
+  Recurrences and Symmetry-Reduced Algorithms, accepted at ICAA 2027.
+keywords:
+  - online facility assignment
+  - exact dynamic programming
+  - cycle metrics
+  - dihedral symmetry
+  - Rao-Blackwellization
